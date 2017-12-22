@@ -234,7 +234,6 @@
       sickness: "sick",
       gifs: "gifs",
       time: "time",
-      location: 'location',
   };
 
   function sendCommand(e) {
@@ -268,38 +267,6 @@
   }
 
 
-  /*
-  function initMap() {
-      var latitude;
-      var long;
-      navigator.geolocation.getCurrentPosition(function(location) {
-          latitude = location.coords.latitude;
-          long = location.coords.longitude;
-          var uluru = {lat: latitude, lng: long};
-          var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 4,
-              center: uluru
-          });
-          var marker = new google.maps.Marker({
-              position: uluru,
-              map: map
-          });
-      });
-  }
-  */
-
-  function initMap() {
-      var uluru = {lat: -25.363, lng: 131.044};
-      var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
-      });
-      var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-      });
-  }
-
   function createElements(message, inputName, inputClassName, buttonName, buttonClassName, ajaxUrl = 0 , id = 0 ) {
       talk(message, 6000);
       createInput(inputName, inputClassName);
@@ -321,7 +288,7 @@
 
 
   function getGifs(inputClassName, buttonClassName){
-      var url = "http://api.giphy.com/v1/gifs/search?q=";
+      var url = "https://api.giphy.com/v1/gifs/search?q=";
       var search;
       var endpoint = "&api_key=cAYacUSolHAPjwxXp8eIq5YhF5yjD5Ux";
       var isDataUndefined;
@@ -408,7 +375,7 @@
 
   speechSynthesis.addEventListener('voiceschanged', function() {
       voices = this.getVoices();
-      talk("Hello, Robert here, i am a work in progress by a cool developer named Jalen. I would like to know what is your name?", 6000);
+      talk("Hello, Robot Man here, i am a work in progress by a cool developer named Jalen. I would like to know what is your name?", 6000);
 
       setTimeout(function(){
           $("#threejs input").css({
@@ -496,9 +463,9 @@
                   child.geometry.computeVertexNormals;
               }
           });
-          object.position.set(-10,-16,-5);
+          object.position.set(-10,-25,-5);
           object.rotateY(10);
-          object.scale.set(8,8,8);
+          object.scale.set(10,10,10);
           // then directly add the object
           return scene.add(object);
       };
@@ -514,8 +481,4 @@
       draw();
       animate();
 
-</script>
-
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5i3Cy-ymV5EdoKTfqDcUxWIobg2N_JdM&callback=initMap">
 </script>
