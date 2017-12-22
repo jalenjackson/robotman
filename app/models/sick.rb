@@ -1,0 +1,2 @@
+class Sick < ApplicationRecord
+end
